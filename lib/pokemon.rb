@@ -20,7 +20,7 @@ class Pokemon
 
   def self.find(id, db)
     db.execute("SELECT id, name, type FROM pokemon WHERE pokemon.id = (?)", id).map do |row|
-       Pokemon.new(id: row[0], 
+       Pokemon.new(id: row[0], name: row[1], type: row[2])
  # binding.pry
 end
 end
