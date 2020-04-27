@@ -19,7 +19,7 @@ class Pokemon
 
   def self.find(id, db)
     
-    db.execute("SELECT id, name, type FROM pokemon WHERE pokemon.id = (?)", id).flatten
-  
+    db.execute("SELECT id, name, type FROM pokemon WHERE pokemon.id = (?)", id).map do |row| self.find(row)
+  end
   end
 end
